@@ -72,3 +72,12 @@ export const Desc = styled.Text`
     font-size: 14px;
     font-weight: 500;
 `;
+
+export const LikesBox = styled.View`
+    padding: 10px;
+`;
+
+export const LikeText = styled.View`
+    font-weight: 600;
+    color: #0d0d0d;
+`;

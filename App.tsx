@@ -60,15 +60,17 @@ const App: React.FC = () => {
         <AppContainer>
             <Topbar clearFeed={clearFeed} />
             <FeedContainer>
-                {feed.length ? (
-                    <FlatList
-                        data={feed}
-                        showsHorizontalScrollIndicator={false}
-                        renderItem={({ item, index }) => <Post postData={item} key={index} />}
-                    />
-                ) : (
-                    <NoPosts>Não há Posts</NoPosts>
-                )}
+                {
+                    feed.length ? (
+                        <FlatList
+                            data={feed}
+                            showsHorizontalScrollIndicator={false}
+                            renderItem={({ item, index }) => <Post postData={item} key={index} />}
+                        />
+                    ) : (
+                        <NoPosts>Não há Posts</NoPosts>
+                    )
+                }
             </FeedContainer>
         </AppContainer>
     );

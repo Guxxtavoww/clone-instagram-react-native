@@ -27,6 +27,13 @@ const Post: React.FC<IPostProps> = ({ postData }) => {
                     <C.BtnImage source={require("../../assets/send.png")} />
                 </C.BtnImageBx>
             </C.ControlsBox>
+            { 
+                postData.likes >= 1 && (
+                    <C.LikesBox>
+                        <C.LikeText>Likes: {postData.likes}</C.LikeText>
+                    </C.LikesBox>
+                ) 
+            }
             <C.DescBox>
                 <C.DescName>{postData.name}</C.DescName>
                 <C.BtnDesc onPress={handleDescShow}>
