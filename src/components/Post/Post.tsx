@@ -8,7 +8,19 @@ interface IPostProps {
 }
 
 const Post: React.FC<IPostProps> = ({ postData }) => {
-    const [ isDescShowing, setIsDescShowing ] = React.useState<boolean>(false);
+    const [ isLiked, setIsLiked ] = React.useState(postData.isLiked);
+    const [ isDescShowing, setIsDescShowing ] = React.useState(false);
+    const [ likeCount, setLikeCount ] = React.useState(postData.likes);
+
+    const handleLike = () => {
+        if (isLiked) {
+            //setLikeCount(likeCount - 1);
+            setIsLiked(false);
+        } else {
+            //setLikeCount(likeCount + 1);
+            setIsLiked(true);
+        }
+    }
 
     const handleDescShow = () => setIsDescShowing(!isDescShowing);
 
@@ -20,26 +32,27 @@ const Post: React.FC<IPostProps> = ({ postData }) => {
             </C.ProfileInfo>
             <C.PostImage source={{ uri: postData.postImage }} resizeMode="cover" />
             <C.ControlsBox>
-                <C.BtnImageBx>
-                    <C.BtnImage source={require("../../assets/like.png")} />
+                <C.BtnImageBx onPress={handleLike}>
+                    <C.BtnImage
+                        source={isLiked ? require("../../assets/likeada.png") : require("../../assets/like.png")}
+                    />
                 </C.BtnImageBx>
                 <C.BtnImageBx>
                     <C.BtnImage source={require("../../assets/send.png")} />
                 </C.BtnImageBx>
             </C.ControlsBox>
-            { 
-                postData.likes >= 1 && (
+            {
+                likeCount >= 1 && 
                     <C.LikesBox>
-                        <C.LikeText>Likes: {postData.likes}</C.LikeText>
+                        <C.LikeText>Likes: {likeCount}</C.LikeText>
                     </C.LikesBox>
-                ) 
             }
             <C.DescBox>
                 <C.DescName>{postData.name}</C.DescName>
                 <C.BtnDesc onPress={handleDescShow}>
                     <C.BtnDescText>{isDescShowing ? "Parar de ver Descrição" : "Ver Descrição"}</C.BtnDescText>
                 </C.BtnDesc>
-                { isDescShowing && <C.Desc>{postData.desc}</C.Desc> }
+                {isDescShowing && <C.Desc>{postData.desc}</C.Desc>}
             </C.DescBox>
         </C.PostContainer>
     );

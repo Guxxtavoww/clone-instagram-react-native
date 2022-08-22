@@ -1,6 +1,8 @@
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 export const TopbarContainer = styled.View`
+    width: ${Dimensions.get("window").width}px;
     height: 55px;
     background-color: #fff;
     flex-direction: row;

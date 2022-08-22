@@ -1,8 +1,11 @@
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 export const PostContainer = styled.View`
     position: relative;
     margin-bottom: 10px;
+    flex: 1;
+    width: ${Dimensions.get("window").width}px;
 `;
 
 export const ProfileInfo = styled.View`
@@ -77,7 +80,7 @@ export const LikesBox = styled.View`
     padding: 10px;
 `;
 
-export const LikeText = styled.View`
+export const LikeText = styled.Text`
     font-weight: 600;
     color: #0d0d0d;
 `;
