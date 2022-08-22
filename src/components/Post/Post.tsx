@@ -14,10 +14,10 @@ const Post: React.FC<IPostProps> = ({ postData }) => {
 
     const handleLike = () => {
         if (isLiked) {
-            //setLikeCount(likeCount - 1);
+            setLikeCount(likeCount - 1);
             setIsLiked(false);
         } else {
-            //setLikeCount(likeCount + 1);
+            setLikeCount(likeCount + 1);
             setIsLiked(true);
         }
     }
@@ -41,12 +41,9 @@ const Post: React.FC<IPostProps> = ({ postData }) => {
                     <C.BtnImage source={require("../../assets/send.png")} />
                 </C.BtnImageBx>
             </C.ControlsBox>
-            {
-                likeCount >= 1 && 
-                    <C.LikesBox>
-                        <C.LikeText>Likes: {likeCount}</C.LikeText>
-                    </C.LikesBox>
-            }
+            <C.LikesBox>
+                <C.LikeText>Likes: {likeCount}</C.LikeText>
+            </C.LikesBox>
             <C.DescBox>
                 <C.DescName>{postData.name}</C.DescName>
                 <C.BtnDesc onPress={handleDescShow}>
