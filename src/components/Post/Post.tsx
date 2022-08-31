@@ -16,10 +16,10 @@ const Post: React.FC<IPostProps> = ({ postData }) => {
         if (isLiked) {
             setLikeCount(likeCount - 1);
             setIsLiked(false);
-        } else {
-            setLikeCount(likeCount + 1);
-            setIsLiked(true);
+            return;
         }
+        setLikeCount(likeCount + 1);
+        setIsLiked(true);
     }
 
     const handleDescShow = () => setIsDescShowing(!isDescShowing);
