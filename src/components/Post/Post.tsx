@@ -49,7 +49,7 @@ const Post: React.FC<IPostProps> = ({ postData }) => {
                 <C.BtnDesc onPress={handleDescShow}>
                     <C.BtnDescText>{isDescShowing ? "Parar de ver Descrição" : "Ver Descrição"}</C.BtnDescText>
                 </C.BtnDesc>
-                {isDescShowing && <C.Desc>{postData.desc}</C.Desc>}
+               <C.Desc>{isDescShowing && postData.desc}</C.Desc>
             </C.DescBox>
         </C.PostContainer>
     );
